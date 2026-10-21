@@ -1,0 +1,24 @@
+const tempInput = document.querySelector("#tempInput");
+const button = document.querySelector("#checkTempBtn");
+const result = document.querySelector("#result");
+
+button.addEventListener("click", () => {
+  const userInput = tempInput.value.trim();
+
+  if (userInput === "" || isNaN(Number(userInput))) {
+    result.textContent = "Error: Please enter a valid temperature.";
+    return;
+  }
+
+  const temperature = Number(userInput);
+
+  if (temperature < 50) {
+    result.textContent = "Below 50°F: Coat or heavy jacket";
+  } else if (temperature >= 50 && temperature <= 69) {
+    result.textContent = "50–69°F: Light jacket or sweater";
+  } else if (temperature >= 70 && temperature <= 84) {
+    result.textContent = "70–84°F: T-shirt or light clothing";
+  } else if (temperature >= 85) {
+    result.textContent = "85°F and above: Lightweight clothing and a reminder to stay hydrated";
+  }
+});
