@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What Should I Wear?</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f6f3ee;
+        margin: 0;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 700px;
+        margin: 0 auto;
+        background-color: #ddeae7;
+        border-radius: 12px;
+        padding: 30px 24px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        border: 1px solid #9aa8a5;
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 15px;
+        padding: 12px;
+        font-size: 1rem;
+        background-color: #2d5e5a;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #264d4a;
+      }
+
+      #result {
+        margin-top: 20px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        min-height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>What Should I Wear?</h1>
+
+      <label for="tempInput">Enter the temperature outside in Fahrenheit:</label>
+      <input id="tempInput" type="text" placeholder="Example: 72" />
+
+      <button id="checkTempBtn">Get my outfit suggestion</button>
+
+      <p id="result"></p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
