@@ -83,23 +83,29 @@
     </form>
 
     <script>
-        // Automatically populate fields from URL parameters if present
+        // Select form elements with querySelector.
+        const fullNameInput = document.querySelector('#fullName');
+        const emailInput = document.querySelector('#email');
+        const interestSelect = document.querySelector('#interest');
+        const volunteerForm = document.querySelector('#volunteerForm');
+        const formStatus = document.querySelector('#formStatus');
+
+        // Automatically populate fields from URL parameters if present.
         const urlParams = new URLSearchParams(window.location.search);
 
         const nameParam = urlParams.get('name');
         if (nameParam) {
-            document.getElementById('fullName').value = nameParam;
+            fullNameInput.value = nameParam;
         }
 
         const emailParam = urlParams.get('email');
         if (emailParam) {
-            document.getElementById('email').value = emailParam;
+            emailInput.value = emailParam;
         }
 
         const interestParam = urlParams.get('interest');
         if (interestParam) {
-            const selectElement = document.getElementById('interest');
-            for (let option of selectElement.options) {
+            for (let option of interestSelect.options) {
                 if (option.value === interestParam) {
                     option.selected = true;
                     break;
@@ -107,15 +113,12 @@
             }
         }
 
-        const volunteerForm = document.getElementById('volunteerForm');
-        const formStatus = document.getElementById('formStatus');
-
         volunteerForm.addEventListener('submit', function (event) {
             event.preventDefault();
 
-            const fullName = document.getElementById('fullName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const interest = document.getElementById('interest').value;
+            const fullName = fullNameInput.value.trim();
+            const email = emailInput.value.trim();
+            const interest = interestSelect.value;
 
             if (!fullName || !email) {
                 formStatus.textContent = 'Please enter your full name and email address.';
@@ -142,7 +145,7 @@
             formStatus.style.color = 'green';
 
             volunteerForm.reset();
-            document.getElementById('interest').value = 'outreach';
+            interestSelect.value = 'outreach';
         });
     </script>
 
