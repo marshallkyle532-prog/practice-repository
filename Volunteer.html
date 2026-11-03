@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Volunteer Interest Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            color: #000;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Volunteer With Us</h2>
+    <p>Interested in supporting our community? Complete the form below to explore volunteer opportunities.</p>
+
+    <form id="volunteerForm">
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="interest">Area of Interest</label>
+            <select id="interest" name="interest">
+                <option value="outreach">Community Outreach</option>
+                <option value="event">Event Support</option>
+                <option value="youth">Youth Mentoring</option>
+            </select>
+        </div>
+
+        <button type="submit">Submit Interest</button>
+    </form>
+
+    <script>
+        // Automatically populate fields from URL parameters if present
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        const nameParam = urlParams.get('name');
+        if (nameParam) {
+            document.getElementById('fullName').value = nameParam;
+        }
+
+        const emailParam = urlParams.get('email');
+        if (emailParam) {
+            document.getElementById('email').value = emailParam;
+        }
+
+        const interestParam = urlParams.get('interest');
+        if (interestParam) {
+            const selectElement = document.getElementById('interest');
+            for (let option of selectElement.options) {
+                if (option.value === interestParam) {
+                    option.selected = true;
+                    break;
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
