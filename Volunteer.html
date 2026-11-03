@@ -133,7 +133,12 @@
             const submission = { fullName, email, interest };
             localStorage.setItem('volunteerInterest', JSON.stringify(submission));
 
-            formStatus.textContent = 'Thank you! Your volunteer interest has been submitted.';
+            const successMessages = {
+                outreach: 'Thank you! We appreciate your interest in Community Outreach and will be in touch.',
+                event: 'Thank you! We appreciate your interest in Event Support and will be in touch.',
+                youth: 'Thank you! We appreciate your interest in Youth Mentoring and will be in touch.'
+            };
+            formStatus.textContent = successMessages[interest] || 'Thank you! Your volunteer interest has been submitted.';
             formStatus.style.color = 'green';
 
             volunteerForm.reset();
