@@ -1,24 +1,39 @@
-const tempInput = document.querySelector("#tempInput");
-const button = document.querySelector("#checkTempBtn");
-const result = document.querySelector("#result");
-
-button.addEventListener("click", () => {
-  const userInput = tempInput.value.trim();
-
-  if (userInput === "" || isNaN(Number(userInput))) {
-    result.textContent = "Error: Please enter a valid temperature.";
-    return;
-  }
-
-  const temperature = Number(userInput);
-
-  if (temperature < 50) {
-    result.textContent = "Below 50°F: Coat or heavy jacket";
-  } else if (temperature >= 50 && temperature <= 69) {
-    result.textContent = "50–69°F: Light jacket or sweater";
-  } else if (temperature >= 70 && temperature <= 84) {
-    result.textContent = "70–84°F: T-shirt or light clothing";
-  } else if (temperature >= 85) {
-    result.textContent = "85°F and above: Lightweight clothing and a reminder to stay hydrated";
-  }
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roots &amp; Routes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header><h1>Roots &amp; Routes</h1><p>Discover the world. Connect with culture.</p></header>
+    <main>
+        <section class="search-section">
+            <h2>Explore a Country</h2>
+            <form id="country-form">
+                <label for="country">Select a country:</label>
+                <select id="country">
+                    <option value="GH">Ghana</option>
+                    <option value="JM">Jamaica</option>
+                    <option value="SN">Senegal</option>
+                    <option value="KE">Kenya</option>
+                    <option value="BR">Brazil</option>
+                    <option value="BB">Barbados</option>
+                </select>
+                <button type="submit">Explore Country</button>
+            </form>
+        </section>
+        <section class="country-card" aria-live="polite">
+            <h2 id="country-name">Discover a country</h2>
+            <p>Capital: <span id="capital"></span></p>
+            <p>Region: <span id="region"></span></p>
+            <!-- TODO H1: Add a paragraph for subregion with a span whose ID is subregion. -->
+            <!-- TODO H2: Add a paragraph for population with a span whose ID is population. -->
+            <!-- TODO H3: Add one additional detail of your choice in Part 4. -->
+        </section>
+    </main>
+    <footer><p>Powered by the countries.dev API</p></footer>
+    <script src="script.js"></script>
+</body>
+</html>
